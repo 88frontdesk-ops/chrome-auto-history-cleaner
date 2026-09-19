@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>History Auto Cleaner</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      width: 290px;
+      margin: 0;
+      padding: 16px;
+    }
+    h3 { margin: 0 0 16px; font-size: 17px; }
+    .setting {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 12px;
+    }
+    .setting-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      font-weight: 600;
+      font-size: 13px;
+    }
+    .description {
+      margin-top: 6px;
+      color: #666;
+      font-size: 11px;
+      line-height: 1.4;
+    }
+    label { font-size: 13px; }
+    select, button {
+      box-sizing: border-box;
+      width: 100%;
+      padding: 9px;
+      font-size: 13px;
+    }
+    select { margin-top: 10px; }
+    button { margin-top: 10px; cursor: pointer; }
+    #status {
+      margin-top: 12px;
+      font-size: 12px;
+      color: #555;
+      line-height: 1.4;
+    }
+    .note { margin-top: 10px; font-size: 11px; color: #777; }
+  </style>
+</head>
+<body>
+  <h3>History Auto Cleaner</h3>
+
+  <div class="setting">
+    <div class="setting-title">
+      <label for="scheduleEnabled">Scheduled cleanup</label>
+      <input id="scheduleEnabled" type="checkbox">
+    </div>
+    <div class="description">Automatically clear browsing history at a selected interval.</div>
+    <select id="interval">
+      <option value="10">Every 10 minutes</option>
+      <option value="30">Every 30 minutes</option>
+      <option value="60">Every 1 hour</option>
+    </select>
+  </div>
+
+  <div class="setting">
+    <div class="setting-title">
+      <label for="clearOnClose">Also clear on Chrome close</label>
+      <input id="clearOnClose" type="checkbox">
+    </div>
+    <div class="description">Additionally attempt to clear history when Chrome shuts down.</div>
+  </div>
+
+  <button id="save">Save settings</button>
+  <button id="clearNow">Clear history now</button>
+
+  <div id="status">Loading…</div>
+  <div class="note">Close cleanup is best effort and is not guaranteed by Chrome.</div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

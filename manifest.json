@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "History Auto Cleaner",
+  "version": "3.0.0",
+  "description": "Clear Chrome browsing history on a schedule and optionally when Chrome closes.",
+  "permissions": [
+    "history",
+    "alarms",
+    "storage"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "History Auto Cleaner",
+    "default_popup": "popup.html"
+  }
+}
